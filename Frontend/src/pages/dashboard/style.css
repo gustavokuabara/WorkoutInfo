@@ -1,0 +1,486 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Previne que os inputs vazem para fora da linha */
+}
+
+.dashboard-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 60px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  gap: 60px;
+}
+
+/* --- Esquerda --- */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.dashboard-header h1 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  letter-spacing: -2px;
+  background: linear-gradient(to bottom, #fff, #aaa);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+}
+
+.btn-novo-treino {
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 40px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-novo-treino:hover {
+  transform: scale(1.05) translateY(-3px);
+  border: 1px solid #00bfff;
+}
+
+/* --- Lista --- */
+.lista-treinos-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.card-treino-horizontal {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 25px 35px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  transition: 0.3s;
+}
+
+.card-treino-horizontal:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateX(10px);
+  border-color: #00bfff;
+}
+
+.info-treino h3 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 5px;
+}
+
+.info-treino p {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+}
+
+/* --- Botoes --- */
+.acoes-treino {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.btn-play {
+  background: #00bfff;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 30px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 191, 255, 0.3);
+  transition: 0.3s;
+}
+
+.btn-play:hover {
+  background: #0099cc;
+  transform: scale(1.05);
+}
+
+.btn-editar,
+.btn-excluir {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-editar:hover {
+  background: #00bfff;
+  border-color: #00bfff;
+}
+.btn-excluir:hover {
+  background: #ff4d4d;
+  border-color: #ff4d4d;
+}
+
+.btn-excluir.confirmando {
+  background: #ff4d4d !important;
+  color: white !important;
+  border-color: #ff4d4d !important;
+  animation: pulse 1s infinite;
+  padding: 8px 15px; 
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* --- Direita --- */
+.sidebar-info {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.widget-calendario,
+.widget-stats {
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 25px;
+  border-radius: 24px;
+}
+
+.widget-calendario h4,
+.widget-stats h4 {
+  color: #00bfff;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.btn-logout {
+  background: rgba(255, 77, 77, 0.1);
+  color: #ff4d4d;
+  border: 1px solid rgba(255, 77, 77, 0.3);
+  padding: 12px;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-logout:hover {
+  background: #ff4d4d;
+  color: #fff;
+}
+
+/* --- Calendario --- */
+.react-calendar {
+  width: 100% !important;
+  background: transparent !important;
+  border: none !important;
+  color: white !important;
+}
+.react-calendar__tile {
+  color: white !important;
+  border-radius: 8px;
+  padding: 10px 0 !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 0 !important;
+}
+.react-calendar__tile--active {
+  background: #00bfff !important;
+}
+.react-calendar__navigation button {
+  color: white !important;
+  font-size: 1.2rem;
+}
+.react-calendar__month-view__weekdays {
+  color: #00bfff !important;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.container-dots {
+  display: flex;
+  justify-content: center;
+  gap: 3px;
+  margin-top: 4px;
+  flex-wrap: wrap; /* Caso tenha muitos treinos no dia, eles quebram linha */
+}
+
+.dot-treino {
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* --- Modal --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #151515;
+  padding: 30px;
+  border-radius: 24px;
+  width: 90%;
+  max-width: 600px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.input-modal {
+  width: 100%;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #333;
+  border-radius: 10px;
+  color: white;
+  margin-bottom: 20px;
+  outline: none;
+}
+
+.seletor-dias {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.dia-btn {
+  flex: 1;
+  padding: 10px 0;
+  background: #222;
+  border: 1px solid #333;
+  color: #666;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.8rem;
+  transition: 0.3s;
+}
+
+.dia-btn.ativo {
+  background: #00bfff;
+  color: #fff;
+  border-color: #00bfff;
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.3);
+}
+
+.linha-exercicio {
+  display: grid;
+  grid-template-columns: 2.5fr 0.8fr 0.8fr 0.8fr; 
+  gap: 10px;
+  margin-bottom: 12px;
+  width: 100%;
+}
+
+.linha-exercicio input {
+  width: 100%;
+  min-width: 0;
+  padding: 10px 5px;
+  background: #222;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: white;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.linha-exercicio input:first-child {
+  text-align: left;
+  padding-left: 12px;
+}
+
+.btn-add-campo {
+  background: transparent;
+  color: #00bfff;
+  border: 1px dashed #00bfff;
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  cursor: pointer;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.btn-cancelar {
+  background: transparent;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-salvar {
+  background: #00bfff;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.cabecalho-treino {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.tag-exercicio {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.p-vazio {
+  font-size: 0.8rem;
+  color: #666;
+  font-style: italic;
+}
+
+.card-treino-horizontal {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px 30px;
+}
+
+.info-treino {
+  width: 100%;
+}
+
+.item-exercicio {
+    display: flex;
+    justify-content: flex-start; 
+    align-items: center;
+    gap: 25px; 
+}
+
+.exercicio-nome {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+}
+
+.exercicio-metas {
+    display: flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+    font-variant-numeric: tabular-nums; 
+}
+
+.exercicio-metas span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-align: right;
+}
+
+.exercicio-carga {
+    margin-left: 25px; 
+    font-weight: 600;
+    min-width: 50px;
+    text-align: right;
+}
+
+.lista-evolucao {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.item-evolucao {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.ev-nome {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.ev-detalhe {
+    font-size: 0.8rem;
+    color: #00ff88; 
+}
+
+.ev-porcentagem {
+    margin-left: 8px;
+    color: #00bfff; 
+}
+
+.titulo-com-marcador {
+    display: flex;
+    align-items: center;
+    gap: 12px; 
+}
+
+.dot-treino-lista {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    flex-shrink: 0; 
+}
+
+.titulo-com-marcador h3 {
+    margin: 0;
+    line-height: 1;
+}

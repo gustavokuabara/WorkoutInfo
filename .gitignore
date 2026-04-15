@@ -1,0 +1,9 @@
+# BACKEND 
+Backend/.env
+Backend/venv/
+Backend/*.db
+**/__pycache__/
+
+# FRONTEND
+FRONTEND/node_modules/
+FRONTEND/dist/
