@@ -13,6 +13,29 @@ Dito isso, o site apresenta as seguintes funcionalidades:
 - **Acompanhamento de Evolução:** Widget de progressão de carga.
 - **Sistema de Usuários:** Cadastro, Login ,Recuperação de senha com segurança JWT e persistência de sessão.
 
+## Demonstração
+
+### Dashboard Principal
+<p align="center">
+  <img src="./Assets/dashboard.png" width="700" alt="Dashboard do Workout Info">
+</p>
+
+### Tela de Criação de Conta
+<p align="center">
+  <img src="./Assets/CriarConta.png" width="700" alt="Criação de Conta">
+</p>
+
+### Tela de Login
+<p align="center">
+  <img src="./Assets/Login.png" width="700" alt="Tela de Login">
+</p>
+
+### Tela de Recuperação de Senha
+<p align="center">
+  <img src="./Assets/RecuperarSenha.png" width="700" alt="Recuperação de Senha">
+</p>
+
+
 ## Como rodar o projeto
 
 ### Backend (Python)
