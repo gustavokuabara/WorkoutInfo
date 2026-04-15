@@ -17,7 +17,7 @@ Dito isso, o site apresenta as seguintes funcionalidades:
 
 ### Dashboard Principal
 <p align="center">
-  <img src="./Assets/dashboard.png" width="700" alt="Dashboard do Workout Info">
+  <img src="./Assets/Dashboard.png" width="700" alt="Dashboard do Workout Info">
 </p>
 
 ### Tela de Criação de Conta
