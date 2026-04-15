@@ -206,7 +206,7 @@ async def esqueci_senha(dados: dict, db: Session = Depends(database.get_db)):
     usuario = db.query(models.UsuarioModel).filter(models.UsuarioModel.email == email).first()
 
     # Parece q msm se o email n existe evita lentidao, excluir isso dps 
-    # Mas aqui, para o seu projeto, vamos avisar para facilitar seu teste
+    # Mas aqui é para o projeto, para facilitar testes
     if not usuario:
         raise HTTPException(status_code=404, detail="E-mail não encontrado.")
 
